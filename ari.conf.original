@@ -14,14 +14,14 @@
 # BOOTLOADER OPTIONS
 # {{{
 # UEFI (yes/no)
-uefi='yes'
+uefi=''
 # example:
 # uefi='no'
 
 # bootloader
 # UEFI:	(grub/gummiboot)
 # BIOS:	(grub/syslinux)
-bootloader='grub'
+bootloader=''
 # example:
 # bootloader='syslinux'
 # }}}
@@ -35,25 +35,24 @@ bootloader='grub'
 #manual_part='no'
 
 # select drive to be formatted
-dest_disk='/dev/sda'
+dest_disk=''
 # example:
 # dest_disk='/dev/sda'
 
 # create swap partition (yes/no)
-swap='no'
+swap=''
 
 # create home partition (yes/no)
-home='yes'
+home=''
 
 # encrypt home partition (yes/no)
-encrypt_home='yes'
-cryptsetup_options='-qy -c aes-xts-plain64 -h sha512 -s 512'
+encrypt_home=''
 
 # partition sizes
 # Set '0' for the last partition to fill the remaining space.
 swap_size=''
-root_size='10G'
-home_size='5G'
+root_size=''
+home_size=''
 # example:
 # swap_size='500M'
 # root_size='25G'
@@ -61,7 +60,7 @@ home_size='5G'
 
 # filesystem for root and home partition
 # possible values: (btrfs/ext2/ext3/ext4/f2fs/jfs/nilfs2/reiserfs/xfs)
-fstype='ext4'
+fstype=''
 # example:
 # fstype='ext4'
 # }}}
@@ -71,36 +70,36 @@ fstype='ext4'
 # {{{
 # mirror
 # To use the mirrorlist from the install host, set mirror to 'keep'.
-mirror='http://archlinux.c3sl.ufpr.br/'
+mirror=''
 # example:
 # mirror='http://mirrors.kernel.org/archlinux/'
 
 # language
 # See /etc/locale.gen
-locale='en_US.UTF-8 UTF-8'
+locale=''
 # example:
 # locale='en_US.UTF-8 UTF-8'
 
 # keymap
 # See # localectl list-keymaps
-keymap='us'
+keymap=''
 # example:
 # keymap='us'
 
 # font
-font='Lat2-Terminus16'
+font=''
 # example:
 # font='Lat2-Terminus16'
 
 # timezone
 # See # timedatectl list-timezones
-timezone='Europe/Berlin'
+timezone=''
 # example:
 # timezone='Europe/Berlin'
 
 # hardware clock
 # (utc/localtime)
-hardware_clock='utc'
+hardware_clock=''
 # example:
 # hardware_clock='utc'
 
@@ -123,7 +122,7 @@ hardware_clock='utc'
 # cmdline='root=/dev/sda1 rw quiet'
 
 # hostname
-hostname='vm'
+hostname=''
 # example:
 # hostname='myhostname'
 # }}}
@@ -132,7 +131,7 @@ hostname='vm'
 # network service
 # To skip network configuration, set network to 'no'.
 # possible values: (no/dhcpcd/ifplugd/netctl)
-network='dhcpcd'
+network=''
 # example:
 # network='dhcpcd'
 
@@ -140,24 +139,24 @@ network='dhcpcd'
 # USERS AND PASSWORDS
 # {{{
 # set passwords for root and standard user (yes/no)
-set_password='yes'
+set_password=''
 
 # root password
 # Leave empty to enter the password during installation.
-root_password='cleartext'
+root_password=''
 # example:
 # root_password='cleartext'
 
 # add user (yes/no)
-add_user='yes'
+add_user=''
 
 # username
-username='afu'
+username=''
 # example:
 # username='myuser'
 
 # user password
-user_password='cleartext'
+user_password=''
 # }}}
 
 
@@ -170,19 +169,19 @@ packages=()
 # XORG OPTIONS
 # {{{
 # xorg (yes/no)
-xorg='no'
+xorg=''
 
 # The next two options require xorg, you can ignore them otherwise.
 
 # desktop environment
 # possible values: (no/cinnamon/enlightenment/gnome/kde/lxde/mate/xfce4)
-#desktop_environment=''
+desktop_environment=''
 # example:
 # desktop_environment='xfce4'
 
 # display manager
 # possible values: (no/gdm/kdm/lxdm/xdm)
-#display_manager=''
+display_manager=''
 # example:
 # display_manager='lxdm'
 # }}}
