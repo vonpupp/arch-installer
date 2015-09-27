@@ -577,7 +577,8 @@ if [[ "$uefi" = 'yes' ]]; then
 --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch_grub --recheck' | arch-chroot /mnt
 	else
 		## install gummiboot package
-		pacman_install gummiboot
+		#pacman_install gummiboot
+		pacman_install systemctl
 		## run gummiboot install
                 bootctl --path=/mnt/boot install
 		#arch-chroot /mnt gummiboot install
