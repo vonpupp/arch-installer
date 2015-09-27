@@ -578,7 +578,7 @@ if [[ "$uefi" = 'yes' ]]; then
 	else
 		## install gummiboot package
 		#pacman_install gummiboot
-		pacman_install systemctl
+		pacman_install systemd
 		## run gummiboot install
                 bootctl --path=/mnt/boot install
 		#arch-chroot /mnt gummiboot install
