@@ -579,7 +579,8 @@ if [[ "$uefi" = 'yes' ]]; then
 		## install gummiboot package
 		pacman_install gummiboot
 		## run gummiboot install
-		arch-chroot /mnt gummiboot install
+                bootctl --path=/mnt/boot install
+		#arch-chroot /mnt gummiboot install
 
 		## configure gummiboot
 		cat << EOF > /mnt/boot/loader/loader.conf
