@@ -171,8 +171,8 @@ fi
 ## enforce UTF-8
 [[ "$locale" =~ ^[a-z]{2,3}_[A-Z]{2}(.UTF-8)?\ UTF-8$ ]] || config_fail 'locale'
 # keymap
-[[ -z "$keymap" ]] && config_fail 'keymap'
-localectl --no-pager list-keymaps | grep -x "$keymap" > /dev/null || config_fail 'keymap'
+#[[ -z "$keymap" ]] && config_fail 'keymap'
+#localectl --no-pager list-keymaps | grep -x "$keymap" > /dev/null || config_fail 'keymap'
 # font
 [[ -z "$font" ]] && config_fail 'font'
 # timezone
