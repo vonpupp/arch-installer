@@ -8,3 +8,5 @@ $DIR/cryptlvm/bootstrap.sh
 cd $DIR
 ./archinstaller
 cd -
+
+echo "PermitRootLogin yes" >> /mnt/etc/ssh/sshd_config
