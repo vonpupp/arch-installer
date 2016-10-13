@@ -11,7 +11,10 @@ cd -
 
 $DIR/cryptlvm/05-mount.sh
 echo "PermitRootLogin yes" >> /mnt/etc/ssh/sshd_config
-chroot /mnt
-systemctl enable sshd
-exit
+$DIR/cryptlvm/06-umount.sh
+
+$DIR/cryptlvm/05-mount.sh
+cat << EOF | chroot /mnt
+systemctl enable sshd /
+EOF
 $DIR/cryptlvm/06-umount.sh
