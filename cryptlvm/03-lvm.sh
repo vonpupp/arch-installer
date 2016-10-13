@@ -1,7 +1,8 @@
 #!/bin/bash
 
 set -o nounset
-source vars.sh
+DIR="$(dirname $(readlink -f $0))"
+source $DIR/vars.sh
 
 # ------------------------------------------------------------------------
 # LVM
