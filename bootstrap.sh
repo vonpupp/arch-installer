@@ -4,4 +4,7 @@ set -o nounset
 DIR="$(dirname $(readlink -f $0))"
 
 $DIR/cryptlvm/bootstrap.sh
-$DIR/archinstaller
+
+cd $DIR
+./archinstaller
+cd -
