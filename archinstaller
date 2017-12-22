@@ -471,7 +471,11 @@ FONT=${font}
 EOF
 
 # timezone
+# FIX: Remove this line to avoid script exit
 #ln -s /usr/share/zoneinfo/"$timezone" /mnt/etc/localtime
+
+# FIX: Manually remove vmlinuz-linux to avoid script exit
+rm /mnt/boot/vmlinuz-linux
 
 # hardware clock
 hwclock --adjfile=/mnt/etc/adjtime -w --"$hardware_clock"
