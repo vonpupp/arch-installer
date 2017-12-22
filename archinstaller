@@ -787,9 +787,11 @@ if [[ "$install_packages" = 'yes' ]]; then
 fi
 
 # configure system
+message 'Configure system..'
 configure_system
 
 # install bootloader
+message 'Install bootloader..'
 install_bootloader
 
 # unmount filesystems
