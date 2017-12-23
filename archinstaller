@@ -465,7 +465,6 @@ printf '%s\n' "LANG=${locale%% *}" > /mnt/etc/locale.conf
 arch-chroot /mnt locale-gen
 
 # console font and keymap
-message 'Console font and keymap'
 cat << EOF > /mnt/etc/vconsole.conf
 KEYMAP=${keymap}
 FONT=${font}
@@ -479,11 +478,9 @@ EOF
 #rm /mnt/boot/vmlinuz-linux
 
 # hardware clock
-message 'Hardware clock'
 hwclock --adjfile=/mnt/etc/adjtime -w --"$hardware_clock"
 
 # kernel modules
-message 'Kernel modules'
 if [[ "$configure_modules" = 'yes' ]]; then
 	for m in ${k_modules[@]}; do
 		printf '%s\n' "$m" >> /mnt/etc/modules-load.d/modules.conf
@@ -491,12 +488,10 @@ if [[ "$configure_modules" = 'yes' ]]; then
 fi
 
 # hostname
-message 'Hostname'
 printf '%s\n' "$hostname" > /mnt/etc/hostname
 sed -i '/^127.0.0.1/ s/$/\t'"$hostname"'/' /mnt/etc/hosts
 
 # network service
-message 'Network service'
 if [[ "$network" != 'no' ]]; then
 	## fix wired network interface name to eth0
 	touch /mnt/etc/udev/rules.d/80-net-setup-link.rules
@@ -510,11 +505,12 @@ if [[ "$network" != 'no' ]]; then
 	esac
 fi
 
-#  mkinitcpio
+# mkinitcpio
 message 'Building mkinitcpio'
 if [[ "$configure_hooks" = 'yes' || "$edit_conf" = 'yes' ]]; then
 	cp /mnt/etc/mkinitcpio.conf /tmp/mkinitcpio.conf
 	if [[ "$configure_hooks" = 'yes' ]]; then
+        message 'Configuring hooks: $hooks'
 		sed -i '/^HOOKS="/ c \HOOKS="'"$hooks"'"' /mnt/etc/mkinitcpio.conf
 	fi
 	if [[ "$edit_conf" = 'yes' ]]; then
@@ -527,7 +523,6 @@ if [[ "$configure_hooks" = 'yes' || "$edit_conf" = 'yes' ]]; then
 fi
 
 # root password
-message 'Root password'
 if [[ "$set_password" = 'yes' ]]; then
 	if [[ "$ask_root_password" = 'yes' ]]; then
 		message 'Setting password for root user..'
