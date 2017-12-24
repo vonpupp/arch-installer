@@ -510,11 +510,8 @@ message 'Building mkinitcpio'
 if [[ "$configure_hooks" = 'yes' || "$edit_conf" = 'yes' ]]; then
 	cp /mnt/etc/mkinitcpio.conf /tmp/mkinitcpio.conf
 	if [[ "$configure_hooks" = 'yes' ]]; then
-        message "Configure hooks manually: ${hooks}"
-		#sed -i '/^HOOKS="/ s/HOOKS='"$hooks"'/' /mnt/etc/mkinitcpio.conf
-		#sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT="/ s/quiet/'"$cmdline"'/' \
-		#sed -i '/^HOOKS="/ c \HOOKS="'"$hooks"'"' /mnt/etc/mkinitcpio.conf
-        #sed -i '/^127.0.0.1/ s/$/\t'"$hostname"'/' /mnt/etc/hosts
+		message "Configure hooks manually if needed: ${hooks}"
+		sed -i "s/HOOKS=.*/HOOKS=\(${hooks}\)/" /mnt/etc/mkinitcpio.conf
 	fi
 	if [[ "$edit_conf" = 'yes' ]]; then
 		"$EDITOR" /mnt/etc/mkinitcpio.conf
