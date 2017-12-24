@@ -13,10 +13,10 @@ CHROOT_PACMAN="pacman --cachedir /var/cache/pacman/pkg --config /tmp/pacman.conf
 FILE_URL="file:///packages/core-$(uname -m)/pkg"
 FTP_URL='ftp://archlinux.c3sl.ufpr.br/archlinux/$repo/os/$arch'
 HTTP_URL='http://archlinux.c3sl.ufpr.br/$repo/os/$arch'
-DISK_DEV="/dev/sdc"
+DISK_DEV="/dev/sdb"
 INSTALL_DEV="/dev/mapper/lvm"
 PART_BOOT_SIZE="200M"
-PART_ROOT_SIZE="40G"
+PART_ROOT_SIZE="25G"
 PART_SWAP_SIZE="8G"
 
 # ------------------------------------------------------------------------
